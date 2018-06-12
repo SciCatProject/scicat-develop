@@ -1,12 +1,11 @@
 # Making
 
-Download and build:
+Download, build and run:
 
-    make
+    make && make run
 
 Other tasks:
 
-    make run
     make stop
     make clean
 
