@@ -1,0 +1,5 @@
+version: '3'
+services:
+  catanie:
+    volumes:
+    - "./catanie/catanie/src:/var/catanie/src"
