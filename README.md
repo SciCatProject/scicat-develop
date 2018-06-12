@@ -1,19 +1,13 @@
 # Making
 
-Install:
+Download and build:
 
     make
 
-Run:
+Other tasks:
 
     make run
-
-Stop:
-
     make stop
-
-Clean:
-
     make clean
 
 # Hot reloading
