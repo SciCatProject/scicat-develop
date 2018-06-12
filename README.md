@@ -21,3 +21,4 @@ will make it pick up changes to the frontend made in `catanie/src`. If you want 
 
 - Make catamel support hot reloading
 - Add mock data to database
+- Support testing in frontend
