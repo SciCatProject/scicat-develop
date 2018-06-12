@@ -1,4 +1,4 @@
-FROM node:9.11.1-alpine AS build
+FROM node:9.11.1-alpine
 
 WORKDIR /var/catanie
 COPY catanie .
