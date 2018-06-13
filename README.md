@@ -2,7 +2,11 @@
 
 Download, build and run:
 
-    make && make run
+    make run
+
+Just download and build:
+
+    make
 
 Other tasks:
 

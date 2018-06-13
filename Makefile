@@ -1,24 +1,26 @@
-all:
-	cd catanie && if [[ ! -d catanie ]]; then \
-		git clone https://github.com/SciCatProject/catanie.git; \
-	fi
-	cd catamel && if [[ ! -d catamel ]]; then \
-		git clone https://github.com/SciCatProject/catamel.git; \
-	fi
-	docker-compose build
+.PHONY: all run run-hot stop clean
 
-run:
+all : catanie/catanie catamel/catamel
+	docker-compose build
+	
+catanie/catanie :
+	cd catanie && git clone https://github.com/SciCatProject/catanie.git
+
+catamel/catamel :
+	cd catamel && git clone https://github.com/SciCatProject/catamel.git
+
+stop : all
+	docker-compose down
+
+run : all
 	docker-compose down
 	docker-compose up
 
-run-hot:
+run-hot : all
 	docker-compose down
 	docker-compose -f docker-compose.yml -f docker-compose.hot.yml up
 
-stop:
-	docker-compose down
-
-clean:
+clean :
 	rm -rf catanie/catanie
 	rm -rf catamel/catamel
 	docker-compose rm -fsv
