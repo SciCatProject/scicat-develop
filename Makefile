@@ -1,4 +1,4 @@
-.PHONY: all run run-hot stop clean
+.PHONY: run run-hot stop clean
 
 all : catanie/catanie catamel/catamel
 	docker-compose build
@@ -9,7 +9,7 @@ catanie/catanie :
 catamel/catamel :
 	cd catamel && git clone https://github.com/SciCatProject/catamel.git
 
-stop : all
+stop :
 	docker-compose down
 
 run : all
@@ -17,7 +17,6 @@ run : all
 	docker-compose up
 
 run-hot : all
-	docker-compose down
 	docker-compose -f docker-compose.yml -f docker-compose.hot.yml up
 
 clean :
