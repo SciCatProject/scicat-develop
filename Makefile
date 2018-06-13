@@ -1,4 +1,4 @@
-.PHONY: run run-hot stop clean
+.PHONY: all run run-hot stop clean
 
 all : catanie/catanie catamel/catamel
 	docker-compose build
