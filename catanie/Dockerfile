@@ -8,4 +8,5 @@ RUN apk update && \
     npm i -g npm@6.1.0 && \
     npm i --no-cache
 
-CMD ["npm", "run", "ng", "serve"]
+ENTRYPOINT ["npm", "run", "ng"]
+CMD ["serve"]
