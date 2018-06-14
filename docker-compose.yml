@@ -19,4 +19,3 @@ services:
       context: create-index
     depends_on:
     - catamel
-    

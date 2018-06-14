@@ -19,6 +19,10 @@ run : all
 run-hot : all
 	docker-compose -f docker-compose.yml -f docker-compose.hot.yml up
 
+data :
+	docker-compose -f docker-compose.data.yml build create-data
+	docker-compose -f docker-compose.data.yml run create-data
+
 clean :
 	rm -rf catanie/catanie
 	rm -rf catamel/catamel

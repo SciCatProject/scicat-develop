@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "lorem-ipsum": "^1.0.4",
     "superagent": "^3.8.3"
   }
 }
