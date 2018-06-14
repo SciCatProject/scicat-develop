@@ -24,6 +24,4 @@ data :
 	docker-compose -f docker-compose.data.yml run create-data
 
 clean :
-	rm -rf catanie/catanie
-	rm -rf catamel/catamel
 	docker-compose rm -fsv
