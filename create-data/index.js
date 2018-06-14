@@ -4,6 +4,8 @@ const loremIpsum = require('lorem-ipsum');
 const host = 'catamel';
 const numProposals = 50;
 const numDatasetsPerProposal = [5, 15];
+const numDatafilesPerDataset = [5, 15];
+const bytesPerDatafile = [100000000, 1000000000];
 
 superagent
     .post(`${host}:3000/api/v2/Users/login`)
@@ -82,6 +84,34 @@ function createDatasets(token, {proposalId, ownerGroup, owner, email, beamline})
             .post(`${host}:3000/api/v2/Datasets`)
             .query({access_token: token})
             .send(dataset)
+            .then(res => res.body.pid)
+            .then(pid => createOrigDatablock(token, {ownerGroup, datasetId: pid}))
             .catch(err => console.error(err));
     }
+}
+
+function createOrigDatablock(token, {ownerGroup, datasetId}) {
+    const num = randInt(...numDatafilesPerDataset);
+    
+    const dataFileList = Array(num).fill().map((_, i) => ({
+        path: `datafile_${i}.h5`,
+        size: randInt(...bytesPerDatafile),
+    }));
+
+    const totalSize = dataFileList
+        .map(({size}) => size)
+        .reduce((sum, size) => sum + size);
+
+    const origDatablock = {
+        dataFileList,
+        ownerGroup,
+        datasetId,
+        size: totalSize
+    };
+    
+    superagent
+        .post(`${host}:3000/api/v2/OrigDatablocks`)
+        .query({access_token: token})
+        .send(origDatablock)
+        .catch(err => console.error(err))
 }
