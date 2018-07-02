@@ -69,6 +69,11 @@ function createDatasets(token, {proposalId, ownerGroup, owner, email, beamline})
     
         const sourceFolder = `/data/${ownerGroup}/${i}`;
     
+        const fields = Array(randInt(5,10)).fill(0).map((_, i) => `field_${i}`);
+        const scientificMetadata = fields.reduce((metadata, field) => {
+            return {...metadata, [field]: 'value ' + randInt(10, 20)};
+        }, {});
+
         const dataset = {
             owner,
             contactEmail: email,
@@ -77,7 +82,8 @@ function createDatasets(token, {proposalId, ownerGroup, owner, email, beamline})
             creationTime,
             type: 'raw',
             ownerGroup,
-            proposalId
+            proposalId,
+            scientificMetadata
         };
 
         superagent
