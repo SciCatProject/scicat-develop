@@ -1,4 +1,10 @@
-# Getting started
+# Getting Started
+
+## Requirements
+
+- git
+- Docker
+- docker-compose
 
 ## Downloading & Building
 
