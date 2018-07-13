@@ -5,6 +5,7 @@
 - git
 - Docker
 - docker-compose
+- Make
 
 ## 1. Download & Build
 
