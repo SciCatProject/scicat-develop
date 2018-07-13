@@ -6,7 +6,7 @@
 - Docker
 - docker-compose
 
-## Downloading & Building
+## 1. Download & Build
 
 Build by entering the directory and executing
 
@@ -17,7 +17,7 @@ This will:
 1. Fetch the latest *master* revision of Catamel and Catanie from GitHub, placing them in `catanie/catanie` and `catamel/catamel` respectively.
 2. Build Docker images for Catanie, Catamel, MongoDB and a small helper to create a text index in the database.
 
-## Running
+## 2. Run & Develop
 
 Start developing by executing
 
@@ -25,7 +25,7 @@ Start developing by executing
 
 This will mount the local source code folder (`src`) of Catanie, enabling hot reloading of code changes. Note that changes to anything outside this folder, e.g. `node_modules`, requires a rebuild.
 
-## Add Mock Data
+## 3. Add Mock Data
 
 Run
 
