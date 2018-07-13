@@ -16,8 +16,8 @@ run : all
 	docker-compose down
 	docker-compose up
 
-run-hot : all
-	docker-compose -f docker-compose.yml -f docker-compose.hot.yml up
+run-hot :
+	docker-compose -f docker-compose.yml -f docker-compose.hot.yml up --no-build
 
 data :
 	docker-compose -f docker-compose.data.yml build create-data
