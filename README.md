@@ -1,37 +1,42 @@
-# Making
+# Getting started
 
-Download, build and run:
+## Downloading & Building
 
-    make run
-
-Just download and build:
+Build by entering the directory and executing
 
     make
 
-Other tasks:
+This will:
 
-    make stop
-    make clean
+1. Fetch the latest *master* revision of Catamel and Catanie from GitHub, placing them in `catanie/catanie` and `catamel/catamel` respectively.
+2. Build Docker images for Catanie, Catamel, MongoDB and a small helper to create a text index in the database.
 
-# Repositories
+## Running
 
-Following the instructions above will fetch the latest *master* revision of catamel and catanie from GitHub. If you wish to use more up-to-date repositories, make them available at `catamel/catamel` and `catanie/catanie`.
-
-# Hot reloading
-
-Starting the app with
+Start developing by executing
 
     make run-hot
 
-will make it pick up changes to the frontend made in `catanie/src`. If you want to attach another directory, edit `docker-compose.hot.yml` accordingly.
+This will mount the local source code folder (`src`) of Catanie, enabling hot reloading of code changes. Note that changes to anything outside this folder, e.g. `node_modules`, requires a rebuild.
 
-# Add mock data
+## Add Mock Data
 
 Run
 
     make data
 
-*after* the application has started to add mock proposals and datasets.
+to create and insert mock data (Datasets, Proposals etc.) This is done over the Catamel API, so the application needs to be running.
+
+# Other tasks
+
+Run without hot reloading, i.e. as static Docker images:
+
+    make run
+
+Other:
+
+    make stop
+    make clean
 
 # Todo
 
