@@ -15,7 +15,7 @@ Build by entering the directory and executing
 
 This will:
 
-1. Fetch the latest *master* revision of Catamel and Catanie from GitHub, placing them in `catanie/catanie` and `catamel/catamel` respectively.
+1. Fetch the latest *develop* revision of Catamel and Catanie from GitHub, placing them in `catanie/catanie` and `catamel/catamel` respectively.
 2. Build Docker images for Catanie, Catamel, MongoDB and a small helper to create a text index in the database.
 
 ## 2. Run & Develop
