@@ -8,8 +8,9 @@ COPY server server/
 # python, make, g++ needed for snappy
 RUN apk update && \
     apk add python make g++ && \
-    npm i --no-cache
+    npm i --no-cache && \
+    npm i -g nodemon
 
 COPY wait-for.sh /var
 
-CMD ["/bin/sh", "/var/wait-for.sh", "mongodb:27017", "--", "node", "."]
+CMD ["/bin/sh", "/var/wait-for.sh", "mongodb:27017", "--", "nodemon", "."]
