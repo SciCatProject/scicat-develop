@@ -2,15 +2,13 @@ FROM node:9.11.1-alpine
 
 WORKDIR /var/catamel
 
-COPY catamel .
-COPY server server/
-
-# python, make, g++ needed for snappy
-RUN apk update && \
-    apk add python make g++ && \
+COPY catamel/package.json catamel/package-lock.json ./
+RUN sed -i '/kafka/d' package.json && \
     npm i --no-cache && \
     npm i -g nodemon
 
-COPY wait-for.sh /var
+COPY catamel .
+COPY server server/
 
+COPY wait-for.sh /var
 CMD ["/bin/sh", "/var/wait-for.sh", "mongodb:27017", "--", "nodemon", "."]
