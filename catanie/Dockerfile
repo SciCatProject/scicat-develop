@@ -1,8 +1,7 @@
-FROM node:9.11.1-alpine
+FROM node:8.15.0-stretch-slim
 
-RUN apk update && \
-    apk add git && \
-    npm i -g npm@6.1.0
+RUN apt-get update && \
+    apt-get install -y git
 
 WORKDIR /var/catanie
 COPY catanie .
