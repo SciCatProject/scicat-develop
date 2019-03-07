@@ -1,4 +1,8 @@
-# Getting Started
+# SciCat Develop
+
+## About this repository
+
+This repository gets a working instance of the SciCat metadata catalogue up and running.
 
 ## Requirements
 
